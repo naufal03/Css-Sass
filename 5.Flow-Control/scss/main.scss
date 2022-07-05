@@ -1,0 +1,133 @@
+// if
+// ---------------------------------------------------------
+@mixin profile-pic($size, $circle: false) {
+	width: $size;
+	height: $size;
+	border: 4px solid white;
+	box-shadow: 1px 1px 3px rgba($color: #000, $alpha: 0.3);
+
+
+	@if $circle{
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-o-border-radius: 50%;
+	}
+}
+
+.square-profile{
+	@include profile-pic(200px,$circle: false )
+}
+.circle-profile{
+	@include profile-pic(80px,$circle: true )
+}
+
+// else
+// --------------------------------------------------------
+
+
+$light-bg: #eaeaea;
+$ligh-text: #333;
+$dark-bg: #999;
+$dark-text: #ddd;
+
+@mixin light-mode($light-mode: true) {
+	@if $light-mode {
+		background-color: $light-bg;
+		color: $ligh-text;
+	} @else  {
+		background-color: $dark-bg;
+		color: $dark-text;
+	}
+}
+
+.nav{ 
+	@include light-mode($light-mode:( true))
+}
+
+
+
+// else if
+// --------------------------------------------------------- 
+
+@mixin triangle($size, $color, $direction) {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-color: transparent;
+	border-style: solid;
+	border-width: $size / 2;
+	@if $direction == up{
+		border-bottom-color: $color;
+	} @else if $direction == right {
+		border-left-color: $color;
+	} @else if $direction == bottom{
+		border-top-color: $color;
+	} @else {
+		border-right-color: $color;
+	}
+}
+
+.right{
+	@include triangle(2em, crimson, right)
+}
+
+// for
+// ----------------------------------------------------------
+
+// $color: crimson;
+// .gradient{
+// 	padding: 0px;
+// 	margin: 0;
+// 	margin-top: 10px;
+// 	list-style: none;
+
+// 	@for $i from 1 to 11 {
+// 	li:nth-child(#{$i}){
+// 			padding: 5px;
+// 			background-color: lighten($color, $i * 3%);
+// 		}
+// 	}
+// }
+
+
+// while
+// ----------------------------------------------------------
+
+$color: brown;
+.gradient{
+	padding: 0px;
+	margin: 0;
+	margin-top: 10px;
+	list-style: none;
+	$i : 1;
+	@while $i < 11 {
+	li:nth-child(#{$i}){
+			padding: 5px;
+			background-color: lighten($color, $i * 3%);
+		}
+
+		$i: $i + 1;
+	}
+}
+
+// each 
+// ----------------------------------------------------------
+
+$socials-color:(
+	youtube:red,
+	wa:green,
+	ig:pink,
+);
+
+.socials{
+	font-size: 2em;
+	font-weight: bold;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	@each $social, $color in $socials-color {
+		.#{$social}{
+			color: $color;
+		}
+	}
+}

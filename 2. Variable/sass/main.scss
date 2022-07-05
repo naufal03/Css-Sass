@@ -1,0 +1,27 @@
+// global variables
+// -------------------------------------------------
+// $secondary-color: rgb(240, 238, 114);
+// $text-color: salmon;
+
+// body{
+// 	// local variables
+// -------------------------------------------------
+// 	$primary-color: #ddd !global;
+// 	background-color: $primary-color;
+// }
+
+
+// !global => untuk merubah variable lokal menjadi global
+
+
+// sass map
+// -------------------------------------------------
+$alert: (
+	'danger': red,
+	'success': green,
+	'warning': orenge
+);
+
+h1{
+color: map-get($alert,'success' );
+}

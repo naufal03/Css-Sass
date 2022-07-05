@@ -1,0 +1,53 @@
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header ul li {
+  display: inline-block;
+}
+.header ul li {
+  background-color: crimson;
+  padding: 0.5em;
+}
+.header ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer ul li {
+  display: inline-block;
+}
+.footer ul li {
+  background-color: darkcyan;
+  padding: 0.3em;
+}
+.footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 600px;
+  height: 400px;
+  background-color: #eaeaea;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+.container .box {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(101, 240, 101);
+  line-height: 60px;
+  text-align: center;
+}/*# sourceMappingURL=main.css.map */
